@@ -12,5 +12,10 @@ def index(request):
                 it.save()
             except Exception as e:
                 print(f"Error saving item: {e}")
+        
+
+        if "delete" in request.POST:
+            items.objects.all().delete()
+        
     item = items.objects.all()
     return render(request,"index.html",{"items":item})

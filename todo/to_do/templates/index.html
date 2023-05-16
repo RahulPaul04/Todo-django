@@ -10,9 +10,12 @@
     <div class="px-4 py-4 flex items-center">
         <input type="text" name="name" placeholder="Enter Task" class="rounded-full px-4 ml-2">
     </div>
-    </form>    
+    </form>  
+    <form method="post" action="" name="delete">  
+    {% csrf_token %}
+    <input id="deleteitem" type="text" name="delete" hidden>
     <div class="ml-auto">
-      <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete All</button>
+      <button id="delete" type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete All</button>
     </div>
   </div>
   <script>
@@ -20,6 +23,12 @@
         document.getElementById('addItemForm').submit();
     });
     </script>
+    <script>
+        document.getElementById('delete').addEventListener('click', function() {
+            document.getElementById('deleteitem').submit();
+        });
+    </script>
+
   
   
     <div id="dynamicDivContainer" class="relative">
