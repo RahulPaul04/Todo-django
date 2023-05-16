@@ -1,9 +1,29 @@
 {%extends 'base.html'%} 
 {%block title%} Home {%endblock%} 
 {%block content%} 
-    <div class="px-4 py-4 flex justify-between">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Item</button>
-        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full ">Delete All</button>
+<div class="px-4 py-4 flex items-center justify-between">
+    <button type="submit" id="addDivButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Item</button>
+
+    <form id="addItemForm" action="" method="post">
+    {% csrf_token %}
+
+    <div class="px-4 py-4 flex items-center">
+        <input type="text" name="name" placeholder="Enter Task" class="rounded-full px-4 ml-2">
+    </div>
+    </form>    
+    <div class="ml-auto">
+      <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete All</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById('addDivButton').addEventListener('click', function() {
+        document.getElementById('addItemForm').submit();
+    });
+    </script>
+  
+  
+    <div id="dynamicDivContainer" class="relative">
+        <!-- Placeholder div where the temporary div will appear -->
     </div>
     <div>
         {%for item in items%} 

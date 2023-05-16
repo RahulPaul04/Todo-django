@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <script src="https://cdn.tailwindcss.com"></script>
         <title>{% block title%}{%endblock%}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <script src="{% static 'js/script.js' %}"></script>
+
     </head>
     <body class="bg-gray-900">
         <div class="py-6 px-6">
