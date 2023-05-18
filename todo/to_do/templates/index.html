@@ -39,9 +39,13 @@
         <div class="  rounded-full flex justify-center items-center bg-blue-200 my-1 mx-40">
             <p class="py-4 px-6 m-left-40">{{ item }}</p>
             <div class="ml-auto">
-              <button class=" mx-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                <form method ="post" >
+                {% csrf_token %}
+
+              <button type="submit" name="action" value="{{ forloop.counter }}" class=" mx-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
                 remove
               </button>
+              </form>
             </div>
           </div>
         {%endfor%}
